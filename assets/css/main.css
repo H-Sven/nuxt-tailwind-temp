@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+  .margin-bottom-32 {
+    margin-bottom: 32px;
+  }
+  .w1200 {
+    width: 1200px;
+    margin: 0 auto;
+  }
+  .max-w55p {
+    max-width: 55%;
+  }
+  .fz-14 {
+    font-size: 14px;
+  }
+  .fz-16 {
+    font-size: 16px;
+  }
+}
