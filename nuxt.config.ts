@@ -10,5 +10,12 @@ export default defineNuxtConfig({
     output: {
       publicDir: path.join(__dirname, 'docs')
     }
-  }
+  },
+  app: {
+    baseURL: '/nuxt-tailwind-temp/',
+    buildAssetsDir: 'nuxt_assets',
+  },
+  experimental: {
+    payloadExtraction: false
+  },
 })
