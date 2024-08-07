@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed-card text-[#232323] z-10 border boder-[#d1d7dc] w-[340px] bg-white pb-5 text-black ml-9">
+  <div class="fixed-card sticky top-5 z-[1000] text-[#232323] z-10 border boder-[#d1d7dc] w-[340px] bg-white pb-5 text-black ml-9">
     <img src="https://img-c.udemycdn.com/course/240x135/567828_67d0.jpg" class="w-full">
     <div class="tabs flex items-center justify-between">
       <div :class="{'active': activeName === item.type}" @click="handleActive(item.type)" class="tabs-item border-b border-[#d2d7db] w-1/2 flex items-center justify-center py-4 font-light cursor-pointer hover:font-semibold" v-for="(item, index) in tabsList" :key="index">{{ item.label }}</div>
@@ -47,6 +47,7 @@ const handleActive = (type) => {
 </script>
 <style lang="scss" scoped>
   .fixed-card {
+    margin-top: -300px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .08), 0 4px 12px rgba(0, 0, 0, .08);
     .tabs {
       .tabs-item {

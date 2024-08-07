@@ -28,37 +28,39 @@
         </el-input>
       </div>
       <div class="right-box flex items-center pl-5">
-        <button class="text-black px-3 cursor-pointer hover:text-blue-600">Udemy Business</button>
-        <button class="text-black px-3 cursor-pointer hover:text-blue-600">在Udemy上授课</button>
+        <button class="text-black px-3 cursor-pointer hover:text-blue-600 sm:hidden md:block">Udemy Business</button>
+        <button class="text-black px-3 cursor-pointer hover:text-blue-600 sm:hidden md:block">在Udemy上授课</button>
         <div class="text-black px-3 cursor-pointer hover:text-blue-600"><el-icon><ElIconShoppingCart /></el-icon></div>
         <button class="py-2 px-4 cursor-pointer border border-black hover:bg-gray-200">请登录</button>
         <button class="py-2 px-4 cursor-pointer border border-black bg-black text-white hover:opacity-70 ml-3">注册</button>
-        <button class="py-2 px-4 cursor-pointer border border-black hover:bg-gray-200 ml-3"><el-icon><ElIconLocationFilled /></el-icon></button>
+        <button class="py-2 px-4 cursor-pointer border border-black hover:bg-gray-200 ml-3 sm:hidden md:block"><el-icon><ElIconLocationFilled /></el-icon></button>
       </div>
     </div>
     <div class="header-fiexd top-0 bg-[#2d2f31] fixed z-50 w-full py-3 px-6 text-white text-sm">
       <p class="font-semibold">The Complete Python Bootcamp From Zero to Hero in Python</p>
       <StudentRating />
     </div>
-    <div class="banner-container h-[390px] bg-[#2d2f31] w-full py-8">
-      <div class="inner-container w1200 text-white">
-        <div class="max-w55p">
-          <el-breadcrumb :separator-icon="ArrowRight">
-            <el-breadcrumb-item>开发</el-breadcrumb-item>
-            <el-breadcrumb-item>编程语言</el-breadcrumb-item>
-            <el-breadcrumb-item>Python</el-breadcrumb-item>
-          </el-breadcrumb>
-        </div>
-        <h3 class="slogan py-5 text-3xl font-semibold max-w55p">The Complete Python Bootcamp From Zero to Hero in Python</h3>
-        <div class="text text-xl mb-5 max-w55p font-light">Learn Python like a Professional Start from the basics and go all the way to creating your own applications and games</div>
-        <div class="max-w55p">
-          <StudentRating />
+    <div class="h-[390px] bg-[#2d2f31] w-full py-8">
+      <div class="xl:w1200 lg:w1000 text-white">
+        <div class="xl:max-w55p sm:max-w100p md:max-w55p">
+          <div class="w-full">
+            <el-breadcrumb :separator-icon="ArrowRight">
+              <el-breadcrumb-item>开发</el-breadcrumb-item>
+              <el-breadcrumb-item>编程语言</el-breadcrumb-item>
+              <el-breadcrumb-item>Python</el-breadcrumb-item>
+            </el-breadcrumb>
+          </div>
+          <h3 class="slogan py-5 text-3xl font-semibold">The Complete Python Bootcamp From Zero to Hero in Python</h3>
+          <div class="text text-xl mb-5 font-light">Learn Python like a Professional Start from the basics and go all the way to creating your own applications and games</div>
+          <div class="w-full">
+            <StudentRating />
+          </div>
         </div>
       </div>
     </div>
-    <div class="course-body-container relative w-full">
-      <div class="course-main-box mt-8 flex items-start w1200">
-        <div class="course-content max-w55p">
+    <div class="relative w-full">
+      <div class="xl:w1200 lg:w1000 mt-8 flex items-start">
+        <div class="xl:max-w55p sm:max-w100p md:max-w55p">
           <Card title="你将会学到的" :showMoreBtn="true" className="margin-bottom-32">
             <div class="text-sm text-black flex flex-wrap">
               <div class="my-2 flex items-start w-1/2"  v-for="(item, index) in data1" :key="index">
@@ -155,7 +157,7 @@
             <StudentBuyItem v-for="(item, index) in 6" :key="index" />
           </Card>
         </div>
-        <FixedCard />
+        <FixedCard class="sm:hidden md:block" />
       </div>
     </div>
     <Footer />
