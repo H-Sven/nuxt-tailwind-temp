@@ -1,12 +1,12 @@
 <template>
-  <div class="card-container" :class="[className, showBorder ? 'show-border' : '']" :style="{ padding }">
-    <div v-if="title" class="title font-semibold">{{title}}</div>
+  <div class="card-container relative" :class="[className, showBorder ? 'show-border' : '']" :style="{ padding }">
+    <div v-if="title" class="title text-2xl pb-4 font-semibold">{{title}}</div>
     <div :class="{'show-more-module': !showMoreVisible && showMoreBtn}">
       <div class="slot-content" :style="{maxHeight: showMoreVisible || !showMoreBtn ? '100%': maxHeight}">
         <slot></slot>
       </div>
     </div>
-    <div v-if="showMoreBtn" class="show-more-btn flex items-center cursor-pointer" @click="handleShowMore">
+    <div v-if="showMoreBtn" class="text-blue-500 text-sm flex items-center cursor-pointer" @click="handleShowMore">
       <span>{{ showMoreVisible ? '显示更少': '显示更多' }}</span>
       <el-icon v-if="showMoreVisible"><ElIconArrowUpBold /></el-icon>
       <el-icon v-else><ElIconArrowDownBold /></el-icon>
@@ -51,20 +51,11 @@ const handleShowMore = () => {
 
 <style lang="scss" scoped>
   .card-container {
-    position: relative;
     &.show-border {
       border: 1px solid #d1d7dc;
     }
-    .title {
-      font-size: 24px;
-      padding-bottom: 16px;
-    }
     .show-more-module {
       mask-image: linear-gradient(#ffffff, #ffffff, rgba(255, 255, 255, 0));
-    }
-    .show-more-btn {
-      color: #5022c3;
-      font-size: 14px;
     }
   }
 </style>

@@ -2,7 +2,7 @@
   <div>
     <div class="collapse-comp-container">
       <div
-        class="collapse-item"
+        class="collapse-item border border-[#d1d7dc] bg-[#f7f9fb]"
         v-for="(item, index) in showDataList" :key="index"
         @click="handleShowCollapse(index)"
       >
@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <div class="show-more w-full flex items-center justify-center mt-4 cursor-pointer" @click="isShowAll = true" v-if="!isShowAll && data.length - showMax > 0">还有{{ data.length - showMax }}个章节</div>
+    <div class="border border-[#232323] bg-white h-10 w-full flex items-center justify-center mt-4 cursor-pointer" @click="isShowAll = true" v-if="!isShowAll && data.length - showMax > 0">还有{{ data.length - showMax }}个章节</div>
   </div>
 </template>
 <script setup>
@@ -65,16 +65,9 @@ defineExpose({
 </script>
 <style lang="scss" scoped>
 .collapse-item {
-  border: 1px solid #d1d7dc;
-  background-color: #f7f9fb;
   border-bottom-width: 0px;
   &:last-child {
     border-bottom-width: 1px;
   }
-}
-.show-more {
-  border: 1px solid #232323;
-  background-color: #fff;
-  height: 40px;
 }
 </style>
