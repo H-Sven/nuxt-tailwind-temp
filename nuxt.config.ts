@@ -14,6 +14,11 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/nuxt-tailwind-temp/',
     buildAssetsDir: 'nuxt_assets',
+    head: {
+      link: [
+        { rel: "stylesheet", href: "https://at.alicdn.com/t/c/font_4647307_x3jr8o9k3fk.css" }
+      ],
+    },
   },
   experimental: {
     payloadExtraction: false

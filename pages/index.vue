@@ -1,90 +1,123 @@
 <template>
   <div class="home-container">
-    <div class="w-full fixed-notice bg-[#eceba2] z-[100] relative h-20 flex flex-col items-center justify-center">
-      <div>
-        <span class="font-bold">从各种教学风格中学习</span>
-        <span> | 课程 NT$320 起。</span>
+    <header>
+      <!-- 顶部通知 -->
+      <div v-if="showNotice" class="w-full bg-[#eceba2] z-[100] relative h-20 flex flex-col items-center justify-center">
+        <div>
+          <span class="font-bold">从各种教学风格中学习</span>
+          <span> | 课程 NT$320 起。</span>
+        </div>
+        <div class="font-bold">2 days left!</div>
+        <i class="iconfont icon-close text-[24px] absolute top-3 right-3 cursor-pointer hover:text-blue-500" @click="showNotice = false"></i>
       </div>
-      <div class="font-bold">2 days left!</div>
-    </div>
-    <div class="header-search-box z-[100] relative h-20 px-6 w-full flex bg-white items-center">
-      <img src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg" width="91" height="31" class="logo">
-      <el-popover placement="bottom-start" :width="400">
-      <template #reference>
-        <button class="text-blue-400 px-5 cursor-pointer hover:text-blue-600">类别</button>
-      </template>
-      <div>sdsd</div>
-      <div>sdsd</div>
-      <div>sdsd</div>
-      <div>sdsd</div>
-      <div>sdsd</div>
-      <div>sdsd</div>
-      </el-popover>
-      <div  class="rounded-lg flex-auto">
-        <el-input v-model="searchValue" style="border-radius: 20px;width: 100%; height: 44px;" placeholder="搜索如何内容">
-          <template #prefix>
-            <el-icon><ElIconSearch /></el-icon>
-          </template>
-        </el-input>
+      <!-- header 导航 -->
+      <div class="bg-white px-6 items-center flex shadow-md z-[100] relative text-sm max-md:hidden">
+        <img src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg" width="91" height="31">
+        <button class="text-gray-700 h-12 my-3 mx-4 cursor-pointer hover:text-blue-600">类别</button>
+        <div class="flex flex-1 items-center rounded-full bg-light h-12 px-4 border border-[#000] mr-4 cursor-default">
+          <i class="iconfont icon-search text-[24px] pr-3"></i>
+          <input type="text" name="search" autocomplete="off" class="w-full outline-0 bg-transparent" placeholder="搜索任何内容">
+        </div>
+        <div class="flex items-center pl-5">
+          <button class="h-12 my-3 mx-3 hover:text-blue-600 lg:block hidden">Udemy Business</button>
+          <button class="h-12 my-3 mx-3 hover:text-blue-600 lg:block hidden">在Udemy上授课</button>
+          <button class="text-black px-3 cursor-pointer hover:text-blue-600">
+            <i class="iconfont icon-gouwuchekong text-[24px]"></i>
+          </button>
+          <button class=" py-2 px-4 cursor-pointer border border-black hover:bg-gray-200">请登录</button>
+          <button class="py-2 px-4 cursor-pointer border border-black bg-black text-white hover:opacity-70 ml-3">注册</button>
+          <button class="py-2 px-4 cursor-pointer border border-black hover:bg-gray-200 ml-3 sm:hidden md:block">
+            <i class="iconfont icon-xuanzeyuyan text-[24px] font-medium"></i>
+          </button>
+        </div>
       </div>
-      <div class="right-box flex items-center pl-5">
-        <button class="text-black px-3 cursor-pointer hover:text-blue-600 sm:hidden md:block">Udemy Business</button>
-        <button class="text-black px-3 cursor-pointer hover:text-blue-600 sm:hidden md:block">在Udemy上授课</button>
-        <div class="text-black px-3 cursor-pointer hover:text-blue-600"><el-icon><ElIconShoppingCart /></el-icon></div>
-        <button class="py-2 px-4 cursor-pointer border border-black hover:bg-gray-200">请登录</button>
-        <button class="py-2 px-4 cursor-pointer border border-black bg-black text-white hover:opacity-70 ml-3">注册</button>
-        <button class="py-2 px-4 cursor-pointer border border-black hover:bg-gray-200 ml-3 sm:hidden md:block"><el-icon><ElIconLocationFilled /></el-icon></button>
+      <!-- 固定header -->
+      <div class="header-fiexd top-0 bg-[#2d2f31] fixed z-50 w-full py-3 px-6 text-white text-sm">
+        <p class="font-semibold text-base">The Complete Python Bootcamp From Zero to Hero in Python</p>
+        <StudentRating />
       </div>
-    </div>
-    <div class="header-fiexd top-0 bg-[#2d2f31] fixed z-50 w-full py-3 px-6 text-white text-sm">
-      <p class="font-semibold">The Complete Python Bootcamp From Zero to Hero in Python</p>
-      <StudentRating />
-    </div>
-    <div class="h-[390px] bg-[#2d2f31] w-full py-8">
-      <div class="xl:w1200 lg:w1000 text-white">
-        <div class="xl:max-w55p sm:max-w100p md:max-w55p">
-          <div class="w-full">
-            <el-breadcrumb :separator-icon="ArrowRight">
-              <el-breadcrumb-item>开发</el-breadcrumb-item>
-              <el-breadcrumb-item>编程语言</el-breadcrumb-item>
-              <el-breadcrumb-item>Python</el-breadcrumb-item>
-            </el-breadcrumb>
+    </header>
+    <main>
+      <div class="bg-[#2d2f31] max-lg:!bg-white">
+        <div class="sm:max-w-[600px] min-w-[600px] lg:max-w-[980px] xl:max-w-[1180px] mx-auto my-0 py-7 relative max-sm:p-4">
+          <div class="lg:max-w-[600px] xl:max-w-[800px]  text-white max-lg:!text-normal">
+            <div class="mx-12 lg-m mb-4 w-full flex items-center text-[#c0c4fc] text-sm cursor-pointer">
+              <div>开发</div>
+              <i class="iconfont icon-jiantou1 text-white text-xs px-1"></i>
+              <div>编程语言</div>
+              <i class="iconfont icon-jiantou1 text-white text-xs px-1"></i>
+              <div>Python</div>
+            </div>
+            <div class="relative border border-[#232323] w-full max-lg:block hidden my-4">
+              <img src="https://img-c.udemycdn.com/course/240x135/567828_67d0.jpg" class="w-full">
+              <div class="absolute inset-0 width-full border-white border bg-gradient-to-t from-black/80 to-gray-300/0 opacity-85 flex flex-col items-center justify-center">
+                <div class="rounded-[50%] bg-white w-16 h-16 flex items-center justify-center">
+                  <i class="iconfont icon-bofang text-black text-[35px]"></i>
+                </div>
+                <div class="text-white mt-8 font-semibold">预览本课程</div>
+              </div>
+            </div>
+            <div class="max-lg:mx-0 mx-12 lg-m mb-4">
+              <div class="text-white max-lg:text-black  max-lg:py-2 py-5 text-3xl font-bold">The Complete Python Bootcamp From Zero to Hero in Python</div>
+              <div class="max-lg:text-black text-base mb-5 font-light">Learn Python like a Professional Start from the basics and go all the way to creating your own applications and games</div>
+              <StudentRating />
+              <div class="max-lg:text-black text-sm py-4">
+                <span>创建者</span>
+                <span class="underline text-blue-300 px-1">Jose Portilla</span>
+                <span  class="underline text-blue-300 px-1">Pierian Training</span>
+              </div>
+              <div class="max-lg:text-black text-sm py-4 text-white flex items-center flex-wrap gap-y-3">
+                <i class="iconfont icon-jinggao pr-2"></i>
+                <span>上次更新时间：2023年7月</span>
+                <i class="iconfont icon-xuanzeyuyan px-2"></i>
+                <span>英语</span>
+                <i class="iconfont icon-common_icon_fewcaptions px-2"></i>
+                <span>简体中文 [自动], 英语 [自动]</span>
+                <span class="underline text-blue-300 px-2">还有14</span>
+              </div>
+            </div>
           </div>
-          <h3 class="slogan py-5 text-3xl font-semibold">The Complete Python Bootcamp From Zero to Hero in Python</h3>
-          <div class="text text-xl mb-5 font-light">Learn Python like a Professional Start from the basics and go all the way to creating your own applications and games</div>
-          <div class="w-full">
-            <StudentRating />
+          <div class="max-lg:block hidden">
+            <FixedCard  />
+          </div>
+          <div :class="scrollPosition > 520 ? 'fixed z-[100]' : 'absolute z-30'" class="top-6 xl:ml-[800px] lg:ml-[600px] max-lg:hidden block border boder-[#d1d7dc] w-[356px] bg-white pb-5 text-black ml-9">
+            <div class="relative">
+              <img src="https://img-c.udemycdn.com/course/240x135/567828_67d0.jpg" class="w-full">
+              <div class="absolute inset-0 width-full border-white border bg-gradient-to-t from-black/80 to-gray-300/0 opacity-85 flex flex-col items-center justify-center">
+                <div class="rounded-[50%] bg-white w-16 h-16 flex items-center justify-center">
+                  <i class="iconfont icon-bofang text-black text-[35px]"></i>
+                </div>
+                <div class="text-white mt-8 font-semibold">预览本课程</div>
+              </div>
+            </div>
+            <FixedCard />
           </div>
         </div>
       </div>
-    </div>
-    <div class="relative w-full">
-      <div class="xl:w1200 lg:w1000 mt-8 flex items-start">
-        <div class="xl:max-w55p sm:max-w100p md:max-w55p">
-          <Card title="你将会学到的" :showMoreBtn="true" className="margin-bottom-32">
+      <div class="min-w-[600px] sm:max-w-[600px] lg:max-w-[980px] xl:max-w-[1180px] mx-auto my-0 py-6 relative max-sm:p-4">
+        <div class="xl:max-w-[800px] lg:max-w-[600px] max-lg:p-0 p-8">
+          <Card title="你将会学到的" :showMoreBtn="true">
             <div class="text-sm text-black flex flex-wrap">
               <div class="my-2 flex items-start w-1/2"  v-for="(item, index) in data1" :key="index">
-                <el-icon class="mt-1"><ElIconSelect /></el-icon>
+                <i class="iconfont icon-confirm"></i>
                 <div class="item-text  ml-4 text-sm">{{ item.text }}</div>
               </div>
             </div>
           </Card>
-          <Card title="浏览相关主题" padding="0" :showBorder="false" class="margin-bottom-32">
+          <Card title="浏览相关主题" padding="0" :showBorder="false" class="mt-8">
             <div class="topic-navigation-module flex items-center">
-              <div v-for="(item, index) in data2" :key="index" class="data2-item rounded-[30px] py-3 px-4  border border-black hover:bg-gray-300 font-medium mr-2 cursor-pointer">{{ item }}</div>
+              <div v-for="(item, index) in data2" :key="index" class="data2-item rounded-[30px] py-3 px-4  border border-black hover:bg-gray-200 font-medium mr-2 cursor-pointer">{{ item }}</div>
             </div>
           </Card>
-          <Card title="本课程包括：" padding="0" :showBorder="false" class="margin-bottom-32">
+          <Card title="本课程包括：" padding="0" :showBorder="false" class="mt-8">
             <div class="flex flex-wrap">
-              <div class="flex items-start w-1/2"  v-for="(item, index) in data3" :key="index">
-                <el-icon>
-                  <component :is="item.icon" />
-                </el-icon>
+              <div class="flex items-start w-1/2 mb-2"  v-for="(item, index) in data3" :key="index">
+                <i class="iconfont" :class="item.icon"></i>
                 <div class="item-text ml-4 text-sm">{{ item.text }}</div>
               </div>
             </div>
           </Card>
-          <Card class="margin-bottom-32">
+          <Card class="mt-8">
             <div class="font-medium fz-16">顶级公司为他们的员工提供这门课程</div>
             <div class="font-light fz-14">
               <span>此课程被选入我们受全球企业信赖的最受好评的课程系列。</span>
@@ -98,75 +131,155 @@
               </div>
             </div>
           </Card>
-          <Card title="课程内容" padding="0" :showBorder="false" class="margin-bottom-32">
+          <div class="bg-[#f7f9fa] mt-6 p-4 flex text-sm items-center justify-between">
+            <div class="flex-[0.7]">
+              <div class="font-bold text-2xl">代码练习</div>
+              <div class="text-sm text-gray-400 py-5">本课程包括我们更新的代码练习，因此您可以在学习过程中演练所掌握的技能。</div>
+              <button class="underline cursor-pointer text-blue-600">查看演示</button>
+            </div>
+            <div class="flex-1 ml-6">
+              <img src="https://www.udemy.com/staticx/udemy/js/webpack/coding-exercises-demo-preview-desktop.2957bed27c3ae43a02824b61ad9cda03.png" alt="">
+            </div>
+          </div>
+          <Card title="课程内容" padding="0" :showBorder="false" class="mt-8">
             <div class="course-container">
               <div class="c-header flex justify-between items-center mb-2">
                 <div class="text-sm">{{ collapseList.length }} 个章节 • 156 个讲座 • 总时长 22 小时 13 分钟</div>
-                <div class="cursor-pointer text-blue-400 hover:text-blue-500" @click="handleOpenCollapse">{{ !isShowAll ? '展开所有章节' : '收起所有章节' }}</div>
+                <div class="cursor-pointer text-sm text-blue-400 hover:text-blue-500" @click="handleOpenCollapse">{{ !isShowAll ? '展开所有章节' : '收起所有章节' }}</div>
               </div>
               <Collapse :data="collapseList" ref="CollapseRef" :showMax="4" />
             </div>
           </Card>
-          <Card title="要求" padding="0" :showBorder="false" class="margin-bottom-32">
+          <Card title="要求" padding="0" :showBorder="false" class="mt-8">
             <div class="flex items-center">
-              <el-icon><ElIconWarningFilled /></el-icon>
-              <span class="ml-3">Access to a computer with an internet connection.</span>
+              <span class="text-base">Access to a computer with an internet connection.</span>
             </div>
           </Card>
-          <Card title="说明" padding="0" :showMoreBtn="true" :showBorder="false" class="margin-bottom-32">
-            <div class="">
-              <p>Become a Python Programmer and learn one of employer's most requested skills of 2023!</p>
-              <p>This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python 3.</p>
-              <p>This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python 3.</p>
-              <p>This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python 3.</p>
-              <p>This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python 3.</p>
-              <p>This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python 3.</p>
-              <p>This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python 3.</p>
-              <p>This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python 3.</p>
-              <p>This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python 3.</p>
-              <p>This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python 3.</p>
-              <p>This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python 3.</p>
-              <p>This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python 3.</p>
-              <p>This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python 3.</p>
-              <p>This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python 3.</p>
-              <p>This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python 3.</p>
-              <p>This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python 3.</p>
-              <p>This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python 3.</p>
+          <Card title="说明" padding="0" :showMoreBtn="true" :showBorder="false" class="mt-8">
+            <div>
+              <div>Become a Python Programmer and learn one of employer's most requested skills of 2023!</div>
+              <div v-for="(item, index) in 10" :key="index">This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python</div>
             </div>
           </Card>
-          <Card title="精选评论" class="margin-bottom-32">
+          <Card title="精选评论" class="mt-10">
             <div class="comment-infot">
               <div class="user-info  flex items-star">
                 <img src="https://img-c.udemycdn.cn/user/200_H/101610246_6b5d_3.jpg" class="mr-4" alt="Ken K." width="64" height="64" loading="lazy">
                 <div class="user-right">
-                  <div class="username font-semibold">Ken K.</div>
-                  <div class="">9 门课程</div>
-                  <div class="">2 条评论</div>
+                  <div class="font-semibold">Ken K.</div>
+                  <div class="text-sm text-gray-600">9 门课程</div>
+                  <div class="text-sm text-gray-600">2 条评论</div>
                 </div>
               </div>
-              <div class="rate flex items-center">
-                <el-rate disabled model-value="5" />
+              <div class="rate flex items-center py-2">
+                <i class="iconfont icon-icon- text-[#eebd4c]" v-for="(item, index) in 5" :key="index"></i>
                 <span>3年前</span>
               </div>
               <div class="inter text-sm">
                 Everything on this course is a goldmine except for the GUI since it's specific for Jupyter Notebooks and it's missing the video for GUI Events. Still it was a nice introduction to GUI. Don't let that disappoint you though. THIS IS A MUST HAVE COURSE. I have already recommended it to few people and always will. Do yourself a favor and do this course if you want to learn Python 3. Thank you so much for this course, Jose-sensei!!
               </div>
+              <div class="pt-3 pb-2 text-xs">此评论是否有用？</div>
+              <div class="flex items-center cursor-pointer">
+                <button class="mr-3 hover:text-blue-500"><i class="iconfont icon-dianzan text-[20px]"></i></button>
+                <button class="mr-3 hover:text-blue-500"><i class="iconfont icon-diancai text-[20px]"></i></button>
+                <button class="underline text-sm hover:text-blue-500">举报</button>
+              </div>
             </div>
           </Card>
-          <Card title="学生还购买了" padding="0" :showBorder="false" class="margin-bottom-32">
-            <StudentBuyItem v-for="(item, index) in 6" :key="index" />
+          <Card title="学生还购买了" padding="0" :showBorder="false" class="mt-10">
+            <StudentBuyItem v-for="(item, index) in showMoreStudentBuyList" :key="index" />
+            <button class="border border-[#232323] w-full p-2  mt-4 text-dark font-bold hover:bg-gray-200" @click="moreBuyList()">{{ showMoreStudentBuy ? '显示更少':'显示更多' }}</button>
           </Card>
+          <Card title="常见购买搭配" class="mt-10">
+            <div v-for="(item, index) in 3" :key="index" class="mb-3 flex items-start justify-between">
+              <div class="w-64 h-36 border">
+                <img src="https://img-c.udemycdn.com/course/240x135/567828_67d0.jpg">
+              </div>
+              <div class="px-3">
+                <div class="text-base font-bold line-clamp-2">The Complete Python Bootcamp From Zero to Hero in Python</div>
+                <div class="py-1 text-xs text-gray-400">Jose Portilla, Pierian Training</div>
+                <div class="py-1">
+                  <span class="text-red-600 pr-1">4.6</span>
+                  <i class="iconfont icon-icon- text-red-600" v-for="(item, index) in 4" :key="index"></i>
+                  <i class="iconfont icon-pingfenti text-red-600"></i>
+                  <a href="javascript:;" class="text-xs max-lg:text-black text-gray-600 px-1 underline">(422323个评分)</a>
+                </div>
+              </div>
+              <div>
+                <div class="text-base font-bold">NT$790</div>
+                <div class="text-sm text-gray-400 line-through">NT$4199</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between mt-5">
+              <div>
+                <span class="text-xl">总计：</span>
+                <span class="text-xl font-bold mr-2">NT$1,500</span>
+                <span class="text-xl line-through text-gray-500 font-light">NT$8,370</span>
+              </div>
+              <button class="py-3 px-4 bg-blue-500 text-white hover:opacity-85 cursor-pointer">全部添加至购物车</button>
+            </div>
+          </Card>
+          <div class="mt-8">
+            <div class="text-2xl pb-4 font-semibold">讲师</div>
+            <Card padding="0" :showBorder="false" :showMoreBtn="true" maxHeight="350px">
+              <div class="underline text-blue-700 font-bold text-xl">Jose Portilla</div>
+              <div class="text-base text-gray-500">Head of Data Science at Pierian Training</div>
+              <div class="mt-3 flex items-start">
+                <div class="w-[112px] h-[112px] rounded-[50%] overflow-hidden">
+                  <img src="https://img-c.udemycdn.com/user/200_H/9685726_67e7_4.jpg" alt="">
+                </div>
+                <div class="text-sm ml-4">
+                  <div class="mb-2"><i class="iconfont icon-icon- mr-1"></i> 4.6 讲师评分</div>
+                  <div class="mb-2"><i class="iconfont icon-icon- mr-1"></i>1194557 条评论</div>
+                  <div class="mb-2"><i class="iconfont icon-icon- mr-1"></i>3957250 名学生</div>
+                  <div class="mb-2"><i class="iconfont icon-icon- mr-1"></i>87 门课程</div>
+                </div>
+              </div>
+              <div class="text-sm mt-2">
+                Jose Marcial Portilla has a BS and MS in Mechanical Engineering from Santa Clara University and years of experience as a professional instructor and trainer for Data Science, Machine Learning and Python Programming. He has publications and patents in various fields such as microfluidics, materials science, and data science. Over the course of his career he has developed a skill set in analyzing data and he hopes to use his experience in teaching and data science to help other people learn the power of programming, the ability to analyze data, and the skills needed to present the data in clear and beautiful visualizations. Currently he works as the Head of Data Science for Pierian Training and provides in-person data science and python programming training courses to employees working at top companies, including General Electric, Cigna, SalesForce, Starbucks, McKinsey and many more. Feel free to check out the website link to find out more information about training offerings.
+              </div>
+            </Card>
+            <Card padding="0" :showBorder="false" class="mt-8">
+              <div class="underline text-blue-700 font-bold text-xl">Pierian Training</div>
+              <div class="text-base text-gray-500">Data Science and Machine Learning Training</div>
+              <div class="mt-3 flex items-start">
+                <div class="w-[112px] h-[112px] rounded-[50%] overflow-hidden">
+                  <img src="https://img-c.udemycdn.com/user/200_H/265589972_dca1.jpg" alt="">
+                </div>
+                <div class="text-sm ml-4">
+                  <div class="mb-2"><i class="iconfont icon-icon- mr-1"></i> 4.6 讲师评分</div>
+                  <div class="mb-2"><i class="iconfont icon-icon- mr-1"></i>1194557 条评论</div>
+                  <div class="mb-2"><i class="iconfont icon-icon- mr-1"></i>3957250 名学生</div>
+                  <div class="mb-2"><i class="iconfont icon-icon- mr-1"></i>87 门课程</div>
+                </div>
+              </div>
+              <div class="text-sm mt-2">
+                Pierian Training stands as a premier provider in the realms of Data Science and Machine Learning education, offering both in-person and virtual instructor-led training tailored for enterprises. Explore our comprehensive profile to discover a wide range of courses designed to enhance your professional skills and organizational capabilities. Feel free to contact us if you have any questions in the link on our profile!
+              </div>
+            </Card>
+          </div>
         </div>
-        <FixedCard class="sm:hidden md:block" />
       </div>
-    </div>
+    </main>
     <Footer />
   </div>
 </template>
 <script setup lang="ts">
-import { ArrowRight, Notebook,FolderDelete,Mic,MapLocation ,Apple,Lollipop} from '@element-plus/icons-vue'
-
-const searchValue = ref('')
+const scrollPosition = ref(0)
+const handleScroll = () => {
+  // 更新滚动位置
+  scrollPosition.value = window.scrollY;
+  console.log('滚动位置:', scrollPosition.value);
+}
+onMounted(() => {
+  // 组件挂载后添加滚动事件监听
+  window.addEventListener('scroll', handleScroll);
+});
+onUnmounted(() => {
+  // 组件卸载前移除滚动事件监听
+  window.removeEventListener('scroll', handleScroll);
+});
+const showNotice = ref(true)
 
 const data1 = ref([
   {text: 'You will learn how to leverage the power of Python to solve tasks.'},
@@ -185,30 +298,41 @@ const data1 = ref([
 
 const data2 = ref(['Python', '编程语言', '开发'])
 const data3 = ref([
-  {text: '22 小时 长的随选视频', icon: Notebook },
-  {text: '在移动设备和电视上观看', icon: FolderDelete },
-  {text: '19 个代码练习', icon: MapLocation },
-  {text: '完整的永久访问权', icon: Mic },
-  {text: '15 篇文章', icon: Lollipop },
-  {text: '结业证书', icon: Apple },
+  {text: '22 小时 长的随选视频', icon: 'icon-common_icon_fewcaptions' },
+  {text: '在移动设备和电视上观看', icon: 'icon-common_icon_fewcaptions' },
+  {text: '19 个代码练习', icon: 'icon-common_icon_fewcaptions' },
+  {text: '完整的永久访问权', icon: 'icon-common_icon_fewcaptions' },
+  {text: '15 篇文章', icon: 'icon-common_icon_fewcaptions' },
+  {text: '结业证书', icon: 'icon-common_icon_fewcaptions' },
 ])
 
 const collapseList = ref([
   {
     title: 'Course Overview',
     content: [
-      { text: 'Auto-Welcome Message', duration: '00:44' },
-      { text: 'Auto-Welcome Message', duration: '00:44' },
-      { text: 'Auto-Welcome Message', duration: '00:44' },
-      { text: 'Auto-Welcome Message', duration: '00:44' },
-      { text: 'Auto-Welcome Message', duration: '00:44' },
-      { text: 'Auto-Welcome Message', duration: '00:44' },
+      { text: 'Auto-Welcome Message', content: ['Welcome to the Complete Python Bootcamp'], showContent: false, duration: '00:44' },
+      { text: 'Course Introduction', content: ['Welcome to the Complete Python Bootcamp'],showContent: false, duration: '00:44' },
+      { text: 'Course Curriculum Overview', content: ['Welcome to the Complete Python Bootcamp'],showContent: false, duration: '00:44' },
+      { text: 'Why Python?', content: ['Welcome to the Complete Python Bootcamp'], showContent: false, duration: '00:44' },
+      { text: 'Course FAQs', content: ['Welcome to the Complete Python Bootcamp'], showContent: false, duration: '00:44' },
     ],
     total: 5,
     duration: 19
   },
   {
-    title: 'Course Overview',
+    title: 'Python Setup',
+    content: [
+      { text: 'Auto-Welcome Message', content: ['Welcome to the Complete Python Bootcamp'], duration: '00:44' },
+      { text: 'Course Introduction', content: ['Welcome to the Complete Python Bootcamp'],duration: '00:44' },
+      { text: 'Course Curriculum Overview', content: ['Welcome to the Complete Python Bootcamp'],duration: '00:44' },
+      { text: 'Why Python?', content: ['Welcome to the Complete Python Bootcamp'], duration: '00:44' },
+      { text: 'Course FAQs', content: ['Welcome to the Complete Python Bootcamp'], duration: '00:44' },
+    ],
+    total: 5,
+    duration: 19
+  },
+  {
+    title: 'Python Object and Data Structure Basics',
     content: [
       { text: 'Auto-Welcome Message', duration: '00:44' },
       { text: 'Auto-Welcome Message', duration: '00:44' },
@@ -221,7 +345,7 @@ const collapseList = ref([
     duration: 19
   },
   {
-    title: 'Course Overview',
+    title: 'Python Comparison Operators',
     content: [
       { text: 'Auto-Welcome Message', duration: '00:44' },
       { text: 'Auto-Welcome Message', duration: '00:44' },
@@ -234,7 +358,7 @@ const collapseList = ref([
     duration: 19
   },
   {
-    title: 'Course Overview',
+    title: 'Python Statements',
     content: [
       { text: 'Auto-Welcome Message', duration: '00:44' },
       { text: 'Auto-Welcome Message', duration: '00:44' },
@@ -247,7 +371,7 @@ const collapseList = ref([
     duration: 19
   },
   {
-    title: 'Course Overview',
+    title: 'Methods and Functions',
     content: [
       { text: 'Auto-Welcome Message', duration: '00:44' },
       { text: 'Auto-Welcome Message', duration: '00:44' },
@@ -260,7 +384,7 @@ const collapseList = ref([
     duration: 19
   },
   {
-    title: 'Course Overview',
+    title: 'Milestone Project - 1',
     content: [
       { text: 'Auto-Welcome Message', duration: '00:44' },
       { text: 'Auto-Welcome Message', duration: '00:44' },
@@ -273,7 +397,7 @@ const collapseList = ref([
     duration: 19
   },
   {
-    title: 'Course Overview',
+    title: 'Object Oriented Programming',
     content: [
       { text: 'Auto-Welcome Message', duration: '00:44' },
       { text: 'Auto-Welcome Message', duration: '00:44' },
@@ -286,7 +410,46 @@ const collapseList = ref([
     duration: 19
   },
   {
-    title: 'Course Overview',
+    title: 'Modules and Packages',
+    content: [
+      { text: 'Auto-Welcome Message', duration: '00:44' },
+      { text: 'Auto-Welcome Message', duration: '00:44' },
+      { text: 'Auto-Welcome Message', duration: '00:44' },
+      { text: 'Auto-Welcome Message', duration: '00:44' },
+      { text: 'Auto-Welcome Message', duration: '00:44' },
+      { text: 'Auto-Welcome Message', duration: '00:44' },
+    ],
+    total: 5,
+    duration: 19
+  },
+  {
+    title: 'Errors and Exceptions Handling',
+    content: [
+      { text: 'Auto-Welcome Message', duration: '00:44' },
+      { text: 'Auto-Welcome Message', duration: '00:44' },
+      { text: 'Auto-Welcome Message', duration: '00:44' },
+      { text: 'Auto-Welcome Message', duration: '00:44' },
+      { text: 'Auto-Welcome Message', duration: '00:44' },
+      { text: 'Auto-Welcome Message', duration: '00:44' },
+    ],
+    total: 5,
+    duration: 19
+  },
+  {
+    title: 'Milestone Project - 2',
+    content: [
+      { text: 'Auto-Welcome Message', duration: '00:44' },
+      { text: 'Auto-Welcome Message', duration: '00:44' },
+      { text: 'Auto-Welcome Message', duration: '00:44' },
+      { text: 'Auto-Welcome Message', duration: '00:44' },
+      { text: 'Auto-Welcome Message', duration: '00:44' },
+      { text: 'Auto-Welcome Message', duration: '00:44' },
+    ],
+    total: 5,
+    duration: 19
+  },
+  {
+    title: 'Python Decorators',
     content: [
       { text: 'Auto-Welcome Message', duration: '00:44' },
       { text: 'Auto-Welcome Message', duration: '00:44' },
@@ -305,16 +468,17 @@ const handleOpenCollapse = () => {
   CollapseRef.value.openAll(isShowAll.value)
   isShowAll.value = !isShowAll.value
 }
+
+const showMoreStudentBuyList = ref(6)
+const showMoreStudentBuy = ref(false)
+const moreBuyList = () => {
+  showMoreStudentBuy.value = !showMoreStudentBuy.value
+  showMoreStudentBuyList.value = showMoreStudentBuy.value ? 10 : 6
+}
 </script>
 
 <style lang="scss" scoped>
   .home-container {
-    .header-search-box {
-      :deep .el-input__wrapper {
-        border-radius: 20px;
-        border-color: #2d2f31;
-      }
-    }
     .header-fiexd {
       box-shadow: 0 2px 4px rgba(0, 0, 0, .08), 0 4px 12px rgba(0, 0, 0, .16);
     }

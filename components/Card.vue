@@ -2,7 +2,7 @@
   <div class="card-container relative" :class="[className, showBorder ? 'show-border' : '']" :style="{ padding }">
     <div v-if="title" class="title text-2xl pb-4 font-semibold">{{title}}</div>
     <div :class="{'show-more-module': !showMoreVisible && showMoreBtn}">
-      <div class="slot-content" :style="{maxHeight: showMoreVisible || !showMoreBtn ? '100%': maxHeight}">
+      <div class="slot-content overflow-hidden" :style="{maxHeight: showMoreVisible || !showMoreBtn ? '100%': maxHeight}">
         <slot></slot>
       </div>
     </div>

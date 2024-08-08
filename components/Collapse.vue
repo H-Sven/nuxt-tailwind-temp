@@ -4,20 +4,31 @@
       <div
         class="collapse-item border border-[#d1d7dc] bg-[#f7f9fb]"
         v-for="(item, index) in showDataList" :key="index"
-        @click="handleShowCollapse(index)"
       >
-        <div class="header flex items-center justify-between px-6 py-4 cursor-pointer">
+        <div class="header flex items-center justify-between px-6 py-4 cursor-pointer"  @click.stop="handleShowCollapse(index)">
           <div class="icon flex items-center justify-center">
-            <el-icon v-if="activeNames.includes(index)"><ElIconArrowUpBold /></el-icon>
-            <el-icon v-else><ElIconArrowDownBold /></el-icon>
+            <i v-if="activeNames.includes(index)" class="iconfont icon-jiantou"></i>
+            <i v-else class="iconfont icon-jiantou2"></i>
           </div>
           <div class="title flex-1 ml-3 font-semibold">{{ item.title }}</div>
           <div class="right-content text-sm">{{ item.total }}个讲座·{{ item.duration }}分钟</div>
         </div>
         <div class="content px-6 py-4 bg-white" v-if="activeNames.includes(index)">
-          <div class="content-item flex items-center justify-between h-10" v-for="(ele, i) in item.content" :key="i">
-            <div class="left-title">{{ ele.text }}</div>
-            <div class="right-title">{{ ele.duration }}</div>
+          <div class="mb-3" v-for="(ele, i) in item.content" :key="i">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <i class="iconfont icon-common_icon_fewcaptions"></i>
+                <div class="ml-2 text-sm">{{ ele.text }}</div>
+                <div class="ml-2 text-gray-400 cursor-pointer" @click.stop="ele.showContent = !ele.showContent">
+                  <i v-if="!ele.showContent" class="iconfont icon-xiangxiazhankai"></i>
+                  <i v-else class="iconfont icon-shouqi"></i>
+                </div>
+              </div>
+              <div class="text-sm text-gray-400">{{ ele.duration }}</div>
+            </div>
+            <div v-if="ele.showContent" class="text-gray-400 text-sm pl-5 my-2">
+              <div v-for="(eleitem, k) in ele.content" :key="k">{{ eleitem }}</div>
+            </div>
           </div>
         </div>
       </div>
