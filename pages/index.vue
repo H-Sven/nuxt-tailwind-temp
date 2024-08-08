@@ -258,6 +258,67 @@
               </div>
             </Card>
           </div>
+          <div class="mt-8">
+            <div class="mb-4 font-bold text-2xl flex items-center">
+              <i class="mr-2 iconfont icon-icon- text-2xl text-red-600"></i>
+              <span>4.6课程评分</span>
+              <span class="mx-2 w-2 h-2 bg-red-600 rounded-[50%]"></span>
+              <span>514K评分</span>
+            </div>
+            <div class="flex flex-wrap justify-between">
+              <div v-for="(item, index) in 4" :key="index" class="w-[46%] pt-3 pb-4 mr-3 border-t border-gray-200">
+                <div class="flex mb-4">
+                  <div class="w-10 h-10 bg-black mr-3 text-white rounded-full flex items-center justify-center">AI</div>
+                  <div class="flex-1 flex items-start flex-col justify-center">
+                    <div class="font-bold">Aishwarya.s</div>
+                    <div class="text-xs text-[#6a6f73] flex items-center">
+                      <i class="iconfont icon-icon- text-red-600" v-for="(item, index) in 5" :key="index"></i>
+                      <span>5 天前</span>
+                    </div>
+                  </div>
+                  <div>
+                    <i class="iconfont icon-sangediandian"></i>
+                  </div>
+                </div>
+                <div class="mb-3 text-sm text-gray-500">Its going well so far ,I hope I will be able to understand and learn more about python , so far it was beginner friendly</div>
+                <button class="text-sm font-medium">显示更多</button>
+                <div class="flex items-center mt-5">
+                  <span class="text-xs text-gray-500">有帮助吗？</span>
+                  <i class="iconfont icon-dianzan px-1 cursor-pointer hover:text-blue-500"></i>
+                  <i class="iconfont icon-diancai px-1 cursor-pointer hover:text-blue-500"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8">
+            <div class="text-2xl font-bold pb-2"><span class="text-blue-600">Jose Portilla</span> 的更多课程</div>
+            <div class="flex justify-between flex-wrap">
+              <div v-for="(item, index) in 3" :key="index" class="w-[31%]">
+                <div class="border h-24">
+                  <img src="https://img-c.udemycdn.com/course/240x135/762616_7693_3.jpg" class="w-full h-full" alt="">
+                </div>
+                <div class="font-bold text-base line-clamp-2 mt-2">The Complete SQL Bootcamp: Go from Zero to Hero</div>
+                <div class="text-xs text-gray-400">Jose Portilla, Pierian Training</div>
+                <div class="py-1">
+                  <span class="text-black font-medium text-sm pr-1">4.6</span>
+                  <i class="iconfont icon-icon- text-red-600" v-for="(item, index) in 4" :key="index"></i>
+                  <i class="iconfont icon-pingfenti text-red-600"></i>
+                  <a href="javascript:;" class="text-xs max-lg:text-black text-gray-600 px-1 underline">(423个评分)</a>
+                </div>
+                <div class="text-xs text-gray-400">
+                  <span>总共9小时</span>
+                  <span>·</span>
+                  <span>83个讲座</span>
+                  <span>·</span>
+                  <span>所有级别</span>
+                </div>
+                <div class="pt-2">
+                  <span class="font-bold text-lg">NT$690</span>
+                  <span class="line-through text-base ml-1 text-gray-500">NT$4399</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>

@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     buildAssetsDir: 'nuxt_assets',
     head: {
       link: [
-        { rel: "stylesheet", href: "https://at.alicdn.com/t/c/font_4647307_x3jr8o9k3fk.css" }
+        { rel: "stylesheet", href: "https://at.alicdn.com/t/c/font_4647307_nu27xe0g09.css" }
       ],
     },
   },
