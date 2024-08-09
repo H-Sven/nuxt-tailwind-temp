@@ -6,8 +6,8 @@
         <StudentRating />
       </div>
       <div class="max-lg:!block hidden max-sm:!w-full max-sm:!ml-0 w-[47%] ml-3 overflow-hidden">
-        <button class="bg-white w-full h-full text-black py-3 text-base max-sm:!text-white max-sm:!bg-blue-600">免费试用个人方案</button>
-        <div class="text-center mt-1 text-gray-500">试用后每月 NT$410 起售。可随时取消。</div>
+        <button class="bg-white w-full h-full text-black py-3 text-base max-sm:!text-white max-sm:!bg-blue-600">Try Personal Plan for free</button>
+        <div class="text-center mt-1 text-gray-500">Starting at NT$410 per month after trial. Cancel anytime</div>
       </div>
     </div>
   </div>

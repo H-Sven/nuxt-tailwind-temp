@@ -11,7 +11,7 @@
             <i v-else class="iconfont icon-jiantou2"></i>
           </div>
           <div class="title flex-1 ml-3 font-semibold">{{ item.title }}</div>
-          <div class="right-content text-sm">{{ item.total }}个讲座·{{ item.duration }}分钟</div>
+          <div class="right-content text-sm">{{ item.total }} lectures · {{ item.duration }}min</div>
         </div>
         <div class="content px-6 py-4 bg-white" v-if="activeNames.includes(index)">
           <div class="mb-3" v-for="(ele, i) in item.content" :key="i">
@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-    <div class="border border-[#232323] bg-white h-10 w-full flex items-center justify-center mt-4 cursor-pointer" @click="isShowAll = true" v-if="!isShowAll && data.length - showMax > 0">还有{{ data.length - showMax }}个章节</div>
+    <div class="border border-[#232323] bg-white h-10 w-full flex items-center justify-center mt-4 cursor-pointer" @click="isShowAll = true" v-if="!isShowAll && data.length - showMax > 0">{{ data.length - showMax }} more sections</div>
   </div>
 </template>
 <script setup>

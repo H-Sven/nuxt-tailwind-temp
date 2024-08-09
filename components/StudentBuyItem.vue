@@ -5,8 +5,8 @@
       <div class="flex-[4] min-w-44 ml-2 relative">
         <div class="text-base font-bold line-clamp-2">100 Days of Code: The Complete Python Pro Bootcamp</div>
         <div class="whitespace-nowrap absolute">
-          <span class="font-medium text-sm">总共 56.5 小时 · </span>
-          <span class="text-sm">更新日期 2024年8月</span>
+          <span class="font-medium text-sm">56.5 total hours · </span>
+          <span class="text-sm">Updated 08/2024</span>
         </div>
       </div>
       <div class="flex flex-[4] items-start justify-between ml-4">
