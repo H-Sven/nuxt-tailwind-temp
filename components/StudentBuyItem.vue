@@ -15,7 +15,7 @@
           <i class="iconfont icon-icon- text-red-600"></i>
         </div>
         <div  class="ml-6 text-sm  flex items-center">
-          <el-icon><ElIconUserFilled /></el-icon>
+          <i class="iconfont icon-user pr-1"></i>
           <span>132313213</span>
         </div>
         <div  class="ml-6 flex flex-col">

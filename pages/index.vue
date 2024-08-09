@@ -1,8 +1,7 @@
 <template>
   <div class="home-container">
-    <header>
-      <!-- 顶部通知 -->
-      <div v-if="showNotice" class="w-full bg-[#eceba2] z-[100] relative h-20 flex flex-col items-center justify-center">
+    <header class="min-w-[600px]">
+      <div v-if="showNotice" class="bg-[#eceba2] z-[100] relative h-20 flex flex-col items-center justify-center">
         <div>
           <span class="font-bold">从各种教学风格中学习</span>
           <span> | 课程 NT$320 起。</span>
@@ -10,38 +9,14 @@
         <div class="font-bold">2 days left!</div>
         <i class="iconfont icon-close text-[24px] absolute top-3 right-3 cursor-pointer hover:text-blue-500" @click="showNotice = false"></i>
       </div>
-      <!-- header 导航 -->
-      <div class="bg-white px-6 items-center flex shadow-md z-[100] relative text-sm max-md:hidden">
-        <img src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg" width="91" height="31">
-        <button class="text-gray-700 h-12 my-3 mx-4 cursor-pointer hover:text-blue-600">类别</button>
-        <div class="flex flex-1 items-center rounded-full bg-light h-12 px-4 border border-[#000] mr-4 cursor-default">
-          <i class="iconfont icon-search text-[24px] pr-3"></i>
-          <input type="text" name="search" autocomplete="off" class="w-full outline-0 bg-transparent" placeholder="搜索任何内容">
-        </div>
-        <div class="flex items-center pl-5">
-          <button class="h-12 my-3 mx-3 hover:text-blue-600 lg:block hidden">Udemy Business</button>
-          <button class="h-12 my-3 mx-3 hover:text-blue-600 lg:block hidden">在Udemy上授课</button>
-          <button class="text-black px-3 cursor-pointer hover:text-blue-600">
-            <i class="iconfont icon-gouwuchekong text-[24px]"></i>
-          </button>
-          <button class=" py-2 px-4 cursor-pointer border border-black hover:bg-gray-200">请登录</button>
-          <button class="py-2 px-4 cursor-pointer border border-black bg-black text-white hover:opacity-70 ml-3">注册</button>
-          <button class="py-2 px-4 cursor-pointer border border-black hover:bg-gray-200 ml-3 sm:hidden md:block">
-            <i class="iconfont icon-xuanzeyuyan text-[24px] font-medium"></i>
-          </button>
-        </div>
-      </div>
-      <!-- 固定header -->
-      <div class="header-fiexd top-0 bg-[#2d2f31] fixed z-50 w-full py-3 px-6 text-white text-sm">
-        <p class="font-semibold text-base">The Complete Python Bootcamp From Zero to Hero in Python</p>
-        <StudentRating />
-      </div>
+      <Header />
+      <FixedHead />
     </header>
-    <main>
+    <main class="">
       <div class="bg-[#2d2f31] max-lg:!bg-white">
         <div class="sm:max-w-[600px] min-w-[600px] lg:max-w-[980px] xl:max-w-[1180px] mx-auto my-0 py-7 relative max-sm:p-4">
           <div class="lg:max-w-[600px] xl:max-w-[800px]  text-white max-lg:!text-normal">
-            <div class="mx-12 lg-m mb-4 w-full flex items-center text-[#c0c4fc] text-sm cursor-pointer">
+            <div class="mx-12 lg-m mb-4 flex items-center text-[#c0c4fc] text-sm cursor-pointer">
               <div>开发</div>
               <i class="iconfont icon-jiantou1 text-white text-xs px-1"></i>
               <div>编程语言</div>
@@ -537,11 +512,3 @@ const moreBuyList = () => {
   showMoreStudentBuyList.value = showMoreStudentBuy.value ? 10 : 6
 }
 </script>
-
-<style lang="scss" scoped>
-  .home-container {
-    .header-fiexd {
-      box-shadow: 0 2px 4px rgba(0, 0, 0, .08), 0 4px 12px rgba(0, 0, 0, .16);
-    }
-  }
-</style>

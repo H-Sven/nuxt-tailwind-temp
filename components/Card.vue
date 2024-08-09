@@ -8,8 +8,8 @@
     </div>
     <div v-if="showMoreBtn" class="text-blue-500 text-sm flex items-center cursor-pointer" @click="handleShowMore">
       <span>{{ showMoreVisible ? '显示更少': '显示更多' }}</span>
-      <el-icon v-if="showMoreVisible"><ElIconArrowUpBold /></el-icon>
-      <el-icon v-else><ElIconArrowDownBold /></el-icon>
+      <i class="iconfont icon-jiantou" v-if="showMoreVisible"></i>
+      <i class="iconfont icon-jiantou2" v-else></i>
     </div>
   </div>
 </template>

@@ -4,7 +4,7 @@ const path = require('path')
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  modules: [ '@element-plus/nuxt', '@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss'],
   css: ['~/assets/css/main.css'],
   nitro: {
     output: {
@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     buildAssetsDir: 'nuxt_assets',
     head: {
       link: [
-        { rel: "stylesheet", href: "https://at.alicdn.com/t/c/font_4647307_nu27xe0g09.css" }
+        { rel: "stylesheet", href: "https://at.alicdn.com/t/c/font_4647307_ihhptfto2x8.css" }
       ],
     },
   },
